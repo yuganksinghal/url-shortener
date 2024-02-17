@@ -1,0 +1,6 @@
+<div id="formContainer">
+    <%= form_with data: {turbo: false},  url: "/shortened_urls", method: :post do |form| %>
+        <%= form.text_field :url %>
+        <%= form.submit "Shorten URL" %>
+    <% end %>
+</div>

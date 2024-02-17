@@ -1,0 +1,9 @@
+<div id="formContainer">
+    <%= form_with url: "/shortened_urls", method: :post do |form| %>
+        <%= form.text_field :url %>
+        <%= form.submit "Shorten URL" %>
+    <% end %>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+</div>

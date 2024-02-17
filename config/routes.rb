@@ -7,4 +7,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "shortened_urls#new"
+
+  resources "shortened_urls", only: [:new, :create]
+  
+  get "/:id" => "shortened_urls#redirect", :format => false
 end
