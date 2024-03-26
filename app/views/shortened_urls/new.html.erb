@@ -1,0 +1,22 @@
+<script>
+    function sendData() {
+        let input = document.querySelector("#sendData");
+        let message = input.value;
+        chatChannel.send({ sent_by: "Yugank", body: message });
+    }
+</script>
+
+<div id="formContainer">
+    <%= form_with data: {turbo: false},  url: "/shortened_urls", method: :post do |form| %>
+        <%= form.text_field :url %>
+        <%= form.submit "Shorten URL" %>
+    <% end %>
+</div>
+
+<div data-chat-room='Best Room' data>
+
+</div>
+<div data-controller="hello">
+    <%= text_area_tag :message, "", data: { hello_target: "message" }, id: 'messageText' %>
+    <%= button_tag "Send", data: { action: "hello#send" } %>
+</div>
